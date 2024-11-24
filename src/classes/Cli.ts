@@ -4,6 +4,7 @@ import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
 import Wheel from "./Wheel.js";
+import Vehicle from "./Vehicle.js";
 
 // define the Cli class
 class Cli {
@@ -184,7 +185,8 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          []
+          [],
+          parseInt(answers.towingCapacity),
         );
         this.vehicles.push(truck);
         this.selectedVehicleVin = truck.vin;
@@ -268,7 +270,7 @@ class Cli {
 
   // method to find a vehicle to tow
   // TODO: add a parameter to accept a truck object
-  findVehicleToTow(): void {
+  findVehicleToTow(truck:Truck): void {
     inquirer
       .prompt([
         {
@@ -284,6 +286,13 @@ class Cli {
         },
       ])
       .then((answers) => {
+        const selectedVehicle = answers.vehicleToTow
+
+        if (selectedVehicle === Truck){
+          console.log('The truck cannot tow itself')
+        } else {
+          console.log(`Towing vehicle: ${selectedVehicle.vin} -- ${selectedVehicle.make}${selectedVehicle.model}`)
+        }
         // TODO: check if the selected vehicle is the truck
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
@@ -309,6 +318,8 @@ class Cli {
             'Turn left',
             'Reverse',
             'Select or create another vehicle',
+            'Tow',
+            'Wheelie',
             'Exit',
           ],
         },
@@ -372,7 +383,16 @@ class Cli {
             }
           }
         }
-        // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
+        if (answers.vehicle === 'Truck') {
+          this.findVehicleToTow(answers.vehicle);
+          this.performActions();
+          return;
+        } else if (answers.vehicle === 'Motorbike') {
+          Motorbike.wheelie()
+        }
+        // TODO: add statements to perform the tow action only if the selected vehicle is a truck. 
+        //Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. 
+        //After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
         else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle
