@@ -388,7 +388,8 @@ class Cli {
           this.performActions();
           return;
         } else if (answers.vehicle === 'Motorbike') {
-          Motorbike.wheelie()
+          const motorbike = new Motorbike(answers.vin, answers.color, answers.make, answers.model, answers.year, answers.weight, answers.topSpeed, answers.wheels);
+          motorbike.wheelie()
         }
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. 
         //Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. 
