@@ -35,8 +35,9 @@ class Motorbike extends Vehicle {
     this.weight = weight;
     this.topSpeed = topSpeed;
 
-    if (wheels.length !== 2) {
-      this.wheels = [new Wheel(), new Wheel()]
+
+    if (!wheels || wheels.length !== 2) {
+      this.wheels = [new Wheel(), new Wheel()];
     } else {
       this.wheels=wheels;
     }
@@ -46,20 +47,20 @@ class Motorbike extends Vehicle {
     // TODO: The constructor should initialize the properties of the Motorbike class
     // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not
    wheelie(): void {
-    console.log(`Motorbike ${this.make + this.model} is doing a wheelie`)
+    console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie`);
    }
   // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
 override printDetails(): void {
   super.printDetails();
-  console.log(`The VIN of the truck is ${this.vin}`)
-  console.log(`The make of the truck is ${this.make}`)
-  console.log(`The model of the truck is ${this.model}`)
-  console.log(`The year of the truck is ${this.year}`)
-  console.log(`The weight of the truck is ${this.weight} pounds`)
-  console.log(`The top speed of the truck is ${this.topSpeed}`)
-  console.log(`The color of the truck is ${this.color}`)
-  console.log(`The wheels of the truck ${this.wheels}`)
+  console.log(`The VIN of the motorbike is ${this.vin}`)
+  console.log(`The make of the motorbike is ${this.make}`)
+  console.log(`The model of the motorbike is ${this.model}`)
+  console.log(`The year of the motorbike is ${this.year}`)
+  console.log(`The weight of the motorbike is ${this.weight} pounds`)
+  console.log(`The top speed of the motorbike is ${this.topSpeed}`)
+  console.log(`The color of the motorbike is ${this.color}`)
+  console.log(`The wheels of the motorbike ${this.wheels}`)
 }
   // TODO: Override the printDetails method from the Vehicle class
   // TODO: The method should call the printDetails method of the parent class

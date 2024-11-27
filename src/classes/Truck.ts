@@ -43,9 +43,9 @@ class Truck extends Vehicle {
     this.weight = weight;
     this.topSpeed = topSpeed;
     this.towingCapacity = towingCapacity;
-
+//use json stringify
     if (wheels.length !== 4) {
-      this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()]
+      this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
     } else {
       this.wheels=wheels;
     }
@@ -55,6 +55,7 @@ class Truck extends Vehicle {
     // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
 
   // TODO: Implement the tow method from the AbleToTow interface
+  
   tow(vehicle: Truck | Motorbike | Car): void {
     if (this.make === null || this.model === null) {
       return;
@@ -63,11 +64,12 @@ class Truck extends Vehicle {
     } else {
       console.log('The vehicle is too heavy to be towed')
     }
+  }
     // TODO: Get the make an model of the vehicle if it exists
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     // TODO: If it is, log that the vehicle is being towed
     // TODO: If it is not, log that the vehicle is too heavy to be towed
-  }
+  
 
   // TODO: Override the printDetails method from the Vehicle class
   override printDetails(): void {
@@ -80,7 +82,7 @@ class Truck extends Vehicle {
     console.log(`The top speed of the truck is ${this.topSpeed}`)
     console.log(`The color of the truck is ${this.color}`)
     console.log(`The towing capacity of the truck is ${this.towingCapacity}`)
-    console.log(`The wheels of the truck ${this.wheels}`)
+    console.log(`The wheels of the truck `,this.wheels)
   }
     // TODO: The method should call the printDetails method of the parent class
     // TODO: The method should log the details of the Truck

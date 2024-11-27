@@ -383,13 +383,14 @@ class Cli {
             }
           }
         }
-        if (answers.vehicle === 'Truck') {
+        if (answers.action === 'Tow') {
           this.findVehicleToTow(answers.vehicle);
-          this.performActions();
           return;
-        } else if (answers.vehicle === 'Motorbike') {
-          const motorbike = new Motorbike(answers.vin, answers.color, answers.make, answers.model, answers.year, answers.weight, answers.topSpeed, answers.wheels);
-          motorbike.wheelie()
+        } else if (answers.action === 'Wheelie') {
+          const vehicle = this.vehicles.find((v) => v.vin === this.selectedVehicleVin);
+          if (vehicle instanceof Motorbike) {
+            vehicle.wheelie();
+          }
         }
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. 
         //Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. 
