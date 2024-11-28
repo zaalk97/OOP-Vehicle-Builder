@@ -383,7 +383,7 @@ class Cli {
             }
           }
         }
-        if (answers.action === 'Tow') {
+        if (answers.action ==='Tow') {
           this.findVehicleToTow(answers.vehicle);
           return;
         } else if (answers.action === 'Wheelie') {
