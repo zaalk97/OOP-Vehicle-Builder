@@ -4,7 +4,7 @@
 This program demonstrates object oriented programming using the command line interface to create a car, motorbike, or truck. After choosing the type of vehicle you can operate the vehicle all through command line. Trucks can tow other cars (as long as it has the towing capacity), and motorbikes can do wheelies.
 
 ## Usage
-Type 'npm start' in your terminal and enter your answers as you are prompted.
+Type 'npm start' in your terminal and enter your answers as you are prompted. Click this link to view a demonstration https://youtu.be/oSeVh-YdKwg.
 
 ## Collaborators
 Created by Zaal Khazraeinazmpour with help from Xpert Learning Assistant AI
